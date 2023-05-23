@@ -14,5 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $page_title = "Welcome to Laravel!";
+    $data = [
+        'title' => $page_title,
+        'students' => [
+            'Mario Rossi',
+            'Maria Bruni',
+            'Luigi Verdi',
+            'Beppe Sala'
+        ],
+        'teachers' => [],
+    ];
+    return view('welcome', $data);
+});
+
+Route::get('/about', function(){
+    return view('about');
 });
